@@ -1,5 +1,6 @@
 from flask import Flask, Blueprint
 from flask_restful import Api
+from db.model.goods import db
 
 def create_app():
     app = Flask(__name__)
@@ -10,5 +11,7 @@ def create_app():
     api_v1 = Api(blueprint_v1)
     create_resource_v1(api_v1)
     app.register_blueprint(blueprint_v1, url_prefix='/v1')
+
+    db.init_app(app)
 
     return app
