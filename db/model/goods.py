@@ -1,8 +1,5 @@
-from sqlalchemy import Column, Integer, String
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from db import db
 
 class Goods(db.Model):
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(100))
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(100))
